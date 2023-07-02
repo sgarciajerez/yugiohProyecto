@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, tap } from 'rxjs';
+import { Card } from 'src/app/interfaces/card.interface';
+import { CardService } from 'src/app/services/card.service';
 
 @Component({
   selector: 'app-detail',
@@ -6,5 +10,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent {
+  id!:string;
+  card$!:Observable<Card>;
 
+  constructor(private route:ActivatedRoute, private cardService:CardService) {
+
+  }
+
+  ngOnInit():void{
+    this.id = this.route.snapshot.paramMap.get('id') || '';
+    this.card$ = this.cardService.getCard(this.id).pipe(
+      tap(console.log)
+    );
+  }
 }
