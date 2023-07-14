@@ -30,7 +30,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let market of card.card_prices[0] | keyvalue">
-                    <th scope="row">{{market.key | marketName}}</th>
+                    <td scope="row">{{market.key | marketName}}</td>
                     <td>{{market.value}}</td>
                 </tr>
             </tbody>

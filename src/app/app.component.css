@@ -1,11 +1,11 @@
 :host{
     display: flex;
+    justify-content: center;
     flex-direction: column-reverse;
     height: 100%;
+    background-color: rgb(16, 133, 133);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
 }
 
-.content{
-    margin: 0;
-    background-color: red;
-    position: relative;
-}
